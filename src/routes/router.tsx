@@ -15,7 +15,7 @@ import { initialAppStateType } from '../store';
 import { getNotification, getUnReadNotification } from '../actions/notificationAction';
 import { useSocket } from '../hooks';
 import { getUnreadMessages } from '../actions/chatAction';
-
+import { API_BASE } from '../config/index'
 
 
 export const Router = () => {
@@ -47,7 +47,7 @@ export const Router = () => {
         dispatch(getNotification()); // notification 스크린에서 notification들을 받는다. 즉 노티들을 업데이트 해서 보여줌
     })
 
-
+    console.log('환경 체크 API_BASE: ==>>> ', process.env.API_BASE)
     return (
         <BrowserRouter >
             <div className="mainScreen">

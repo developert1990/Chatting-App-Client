@@ -20,7 +20,7 @@ jobs:
 
       - name: Setting environment variables
         run: |
-          chmod +x ./scripts/set-env.sh
+          sudo chmod +x ./scripts/set-env.sh
           ./scripts/set-env.sh
         
         env:
