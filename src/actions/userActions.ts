@@ -1,4 +1,4 @@
-import { USER_REGISTER_REQUEST, USER_REGISTER_FAIL, USER_REGISTER_SUCCESS, USER_SINGIN_REQUEST, USER_SINGIN_FAIL, USER_SINGIN_SUCCESS, USER_SIGNOUT, USER_DETAIL_REQUEST, USER_DETAIL_SUCCESS, USER_DETAIL_FAIL, USER_INFO_REQUEST, USER_INFO_SUCCESS, USER_INFO_FAIL, USER_INFO_RESET } from './../constants/userConstants';
+import { USER_REGISTER_REQUEST, USER_REGISTER_FAIL, USER_REGISTER_SUCCESS, USER_SINGIN_REQUEST, USER_SINGIN_FAIL, USER_SINGIN_SUCCESS, USER_SIGNOUT, USER_DETAIL_REQUEST, USER_DETAIL_SUCCESS, USER_DETAIL_FAIL, USER_INFO_REQUEST, USER_INFO_SUCCESS, USER_INFO_FAIL } from './../constants/userConstants';
 import Axios from 'axios';
 import { ThunkDispatch } from 'redux-thunk';
 import { API_BASE } from '../config/index';
@@ -40,7 +40,7 @@ export const signin = (userName: string, password: string) => async (dispatch: T
 };
 
 export const signout = () => async (dispatch: ThunkDispatch<any, any, any>) => {
-    const { data } = await Axios.get(`${API_BASE}/users/signout`, {
+    await Axios.get(`${API_BASE}/users/signout`, {
         withCredentials: true
     });
     localStorage.removeItem("userInfo");

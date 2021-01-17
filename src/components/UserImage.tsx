@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { API_BASE } from '../config';
 import { SigninType } from '../reducers/userReducer';
 

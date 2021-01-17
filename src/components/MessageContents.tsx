@@ -1,9 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getChatMessages } from '../actions/chatAction';
+import React from 'react';
 import { ChatMessageType } from '../reducers/chatReducer';
 import { SigninType } from '../reducers/userReducer';
-import { initialAppStateType } from '../store';
 
 export interface MessagecontentsPropsType {
     signinInfo: SigninType;

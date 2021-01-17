@@ -5,10 +5,9 @@ import { ThunkDispatch } from 'redux-thunk';
 
 export const postTextArea = (text: string) => async (dispatch: ThunkDispatch<any, any, any>, getState: () => any) => {
     dispatch({ type: POST_REQUEST });
-    const { signinStore: { signinInfo } } = getState();
     try {
-        const { data } = await Axios.post(`${API_BASE}/postText/upload`, { text }, {
-            headers: { Authorization: `Hong ${signinInfo.token}` },
+        await Axios.post(`${API_BASE}/postText/upload`, { text }, {
+            // headers: { Authorization: `Hong ${signinInfo.token}` },
             withCredentials: true
         });
         dispatch({ type: POST_SUCCESS })
@@ -23,9 +22,8 @@ export const postTextArea = (text: string) => async (dispatch: ThunkDispatch<any
 }
 
 // 로그인한 유저가 post한 것들 가져옴
-export const postLists = () => async (dispatch: ThunkDispatch<any, any, any>, getState: () => any) => {
+export const postLists = () => async (dispatch: ThunkDispatch<any, any, any>) => {
     dispatch({ type: POST_LIST_REQUEST });
-    const { signinStore: { signinInfo } } = getState();
     try {
         const { data } = await Axios.get(`${API_BASE}/postText/list`, {
             // headers: { Authorization: `Hong ${signinInfo.token}` },
@@ -43,12 +41,11 @@ export const postLists = () => async (dispatch: ThunkDispatch<any, any, any>, ge
 }
 
 // 가입이 되어잇는 모든 유저의 post들을 가져온다.
-export const allPostLists = () => async (dispatch: ThunkDispatch<any, any, any>, getState: () => any) => {
+export const allPostLists = () => async (dispatch: ThunkDispatch<any, any, any>) => {
     dispatch({ type: POST_ALL_LIST_REQUEST });
-    const { signinStore: { signinInfo } } = getState();
     try {
         const { data } = await Axios.get(`${API_BASE}/postText/allList`, {
-            headers: { Authorization: `Hong ${signinInfo.token}` },
+            // headers: { Authorization: `Hong ${signinInfo.token}` },
             withCredentials: true
         });
         dispatch({ type: POST_ALL_LIST_SUCCESS, payload: data });
@@ -85,13 +82,10 @@ export const postDelete = (postId: string) => async (dispatch: ThunkDispatch<any
 }
 
 
-export const getPostsByOneUser = (userId: string) => async (dispatch: ThunkDispatch<any, any, any>, getState: () => any) => {
+export const getPostsByOneUser = (userId: string) => async (dispatch: ThunkDispatch<any, any, any>) => {
     dispatch({ type: POST_LIST_ONEUSER_REQUEST });
-    const { signinStore: { signinInfo } } = getState();
-    // console.log('signinInfo  postLists에서: ', signinInfo)
     try {
         const { data } = await Axios.get(`${API_BASE}/postText/list/${userId}`, {
-            headers: { Authorization: `Hong ${signinInfo.token}` },
             withCredentials: true
         });
         dispatch({ type: POST_LIST_ONEUSER_SUCCESS, payload: data });

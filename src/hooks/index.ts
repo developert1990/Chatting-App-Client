@@ -9,6 +9,6 @@ export const useSocket = (url?: string) => {
             socket.off();
             socket.emit('disconnected');
         }
-    }, []);
+    }, [socket]); // 이거 원래 없었음 socket 
     return { socket };
 }

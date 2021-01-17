@@ -1,6 +1,6 @@
-import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react';
+import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, Route, useHistory, useLocation } from 'react-router-dom';
+import { Link, Route, useLocation } from 'react-router-dom';
 import { initialAppStateType } from '../store';
 import { SearchPosts } from '../components/SearchPosts';
 import { SearchUsers } from '../components/SearchUsers';
@@ -18,7 +18,6 @@ export const SearchScreen = () => {
 
     const dispatch = useDispatch();
     const location = useLocation();
-    const history = useHistory();
     const slicedUrl = location.pathname.slice(14);
 
 

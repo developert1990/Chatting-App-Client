@@ -16,7 +16,7 @@ export const NewMessageScreen = () => {
 
 
     const searchUserStore = useSelector((state: initialAppStateType) => state.searchUsersStore);
-    const { users, error: errorUsers, loading: loadingUsers } = searchUserStore;
+    const { users } = searchUserStore;
 
     const signinInfoStore = useSelector((state: initialAppStateType) => state.signinStore);
     const { signinInfo } = signinInfoStore;
@@ -49,7 +49,7 @@ export const NewMessageScreen = () => {
     }
 
     const handleSelectUser = (user: SigninType) => {
-        const selectedUserFullName = user.firstName + " " + user.lastName;
+        // const selectedUserFullName = user.firstName + " " + user.lastName;
         selectedUserList.push(user);
         setInput("");
         if (inputRef && inputRef.current) {

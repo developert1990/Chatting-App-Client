@@ -1,8 +1,8 @@
 import Axios from "axios";
 import React, { ChangeEvent, KeyboardEvent, useEffect, useRef, useState } from "react";
 import { Button, Modal } from 'react-bootstrap';
-import { connect, useDispatch, useSelector } from 'react-redux';
-import { useHistory, useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import { useLocation } from "react-router-dom";
 import { getChatMessages, getUnreadMessages, selectedChat, sendChatMessage } from '../actions/chatAction';
 import { API_BASE } from "../config";
 import { ChatMessageType, ChatType } from "../reducers/chatReducer";
@@ -10,7 +10,7 @@ import { SigninType } from "../reducers/userReducer";
 import { initialAppStateType } from '../store';
 import { getChatImage } from "./MessageScreen";
 import { MessageContents } from '../components/MessageContents';
-import { io, Socket } from 'socket.io-client';
+import { Socket } from 'socket.io-client';
 import { LoadingSpinner } from '../components/LoadingSpinner';
 import Alert from '@material-ui/lab/Alert';
 import { newNotificationUsingSocket } from '../components/socketio';
@@ -33,7 +33,6 @@ interface locationType extends Location {
 export const ChatScreen: React.FC<ChatScreenPropsType> = ({ socket }) => {
     const location = useLocation();
     const dispatch = useDispatch();
-    const history = useHistory();
     const focusRef = useRef<HTMLInputElement & HTMLTextAreaElement>(null);
 
     const [chatName, setChatName] = useState<string>("");
@@ -43,7 +42,7 @@ export const ChatScreen: React.FC<ChatScreenPropsType> = ({ socket }) => {
 
     // 내가 로그인한 정보
     const signinInfoStore = useSelector((state: initialAppStateType) => state.signinStore);
-    const { signinInfo, error: errorSignin, loading: loadingSignin } = signinInfoStore;
+    const { signinInfo } = signinInfoStore;
 
     const selectedChatStore = useSelector((state: initialAppStateType) => state.selectedChatStore);
     const { chatData, error, loading } = selectedChatStore;
@@ -106,6 +105,7 @@ export const ChatScreen: React.FC<ChatScreenPropsType> = ({ socket }) => {
         dispatch(sendChatMessage(msgcontents, chatRoomId));
         setMsgContents("");
 
+        // eslint-disable-next-line array-callback-return
         chatData?.users.filter((user, index) => {
             if (user._id !== signinInfo._id) {
                 newNotificationUsingSocket(user._id);

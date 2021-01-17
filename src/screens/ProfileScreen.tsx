@@ -42,11 +42,11 @@ export const ProfileScreen = () => {
 
     // 내가 로그인한 정보
     const signinInfoStore = useSelector((state: initialAppStateType) => state.signinStore);
-    const { signinInfo, error: errorSignin, loading: loadingSignin } = signinInfoStore;
+    const { signinInfo } = signinInfoStore;
 
     // 유저 업데이트된 디테일
     const userDetailStore = useSelector((state: initialAppStateType) => state.userDetailStore);
-    const { userDetail: userDetailInfo, loading: loadingUserDetail } = userDetailStore;
+    const { userDetail: userDetailInfo } = userDetailStore;
 
     // 이 setUserProfilePic 을 ImgUploadModal 로 넘겨서 프로필사진을 수정하면 db에서 이미지 이름을 받아와서 변경이 될 경우에 useEffect에 dependency로 인해 리랜더가 되게끔 해주었다.
     const [userProfilePic, setUserProfilePic] = useState<string>(userDetailInfo?.profilePic as string);

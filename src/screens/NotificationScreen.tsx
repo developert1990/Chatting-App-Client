@@ -1,9 +1,9 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { initialAppStateType } from '../store';
 import { getNotification, getUnReadNotification } from '../actions/notificationAction';
 import Alert from '@material-ui/lab/Alert';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { API_BASE } from '../config';
 import { getNotificationTextFilter, getNotificationURL } from '../utils/utils';
 import { notificationType } from '../reducers/notificationReducer';
@@ -15,7 +15,6 @@ export const NotificationScreen = () => {
     const notificationStore = useSelector((state: initialAppStateType) => state.notificationStore);
     const { error, loading, notifications } = notificationStore;
     const dispatch = useDispatch();
-    const history = useHistory();
 
 
     // 각 알림을 클릭 햇을 경우 db에서 notification collection에 open 을 false 에서 true로 변경하기위함

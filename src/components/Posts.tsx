@@ -12,9 +12,8 @@ import { ToggleAlert } from './ToggleAlert';
 import { Button, Modal } from 'react-bootstrap';
 import { UserImage } from './UserImage';
 import { Reply } from './Reply';
-import { io, Socket } from 'socket.io-client';
+import { Socket } from 'socket.io-client';
 import { newNotificationUsingSocket } from './socketio';
-import { useSocket } from '../hooks';
 
 export interface PostsPropsType {
     post: postDataType;

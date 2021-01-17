@@ -20,7 +20,7 @@ export const HomeScreen = () => {
     const { signinInfo } = signinInfoStore;
 
     const postContentStore = useSelector((state: initialAppStateType) => state.postTextStore);
-    const { success: postedSuccess, error: errorPostContent, loading: loadingPostContent } = postContentStore;
+    const { success: postedSuccess } = postContentStore;
 
     const userDetailInfoStore = useSelector((state: initialAppStateType) => state.userDetailStore);
     const { userDetail: userDetailInfo } = userDetailInfoStore;

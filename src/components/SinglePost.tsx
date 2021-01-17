@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction, useState } from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import { postDataType } from '../reducers/postReducer';
 import { API_BASE } from '../config';
 import { timeDifference } from '../utils/utils';
@@ -8,7 +8,7 @@ import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import QuestionAnswerOutlinedIcon from '@material-ui/icons/QuestionAnswerOutlined';
 import { postDelete } from '../actions/postActions';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { initialAppStateType } from '../store';
 
@@ -26,10 +26,9 @@ export const SinglePost: React.FC<SinglePostPropsType> = ({ post, setShow, handl
     const { signinInfo } = signinStore;
 
 
-    const history = useHistory();
     const dispatch = useDispatch();
 
-    const { _id, content, createdAt, postedBy, updatedAt } = post;
+    const { content, createdAt, postedBy } = post;
     const displayName = postedBy?.firstName + " " + postedBy?.lastName;
     const timeStamp = timeDifference(new Date().valueOf(), new Date(createdAt).valueOf());
 

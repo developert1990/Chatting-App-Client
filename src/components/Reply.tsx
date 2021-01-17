@@ -31,7 +31,7 @@ export const Reply: React.FC<ReplyPropsType> = ({ post, signinInfo, updatedPostD
     }
 
     const replyDeleteStore = useSelector((state: initialAppStateType) => state.replyDeleteStore);
-    const { error: errorDelete, loading: loadingDelete, result: resultDelete } = replyDeleteStore;
+    const { result: resultDelete } = replyDeleteStore;
 
 
     const dispatch = useDispatch();

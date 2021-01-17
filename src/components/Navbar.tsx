@@ -1,14 +1,11 @@
 import { Badge } from '@material-ui/core'
-import Axios from 'axios'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link, useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { getUnreadMessages } from '../actions/chatAction'
 import { getUnReadNotification } from '../actions/notificationAction'
 import { signout } from '../actions/userActions'
-import { API_BASE } from '../config'
 import { initialAppStateType } from '../store';
-import { io, Socket } from 'socket.io-client';
 
 
 export const Navbar = () => {
@@ -24,7 +21,6 @@ export const Navbar = () => {
 
 
     const dispatch = useDispatch();
-    const history = useHistory();
 
     const handleSignout = async () => {
         dispatch(signout());

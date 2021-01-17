@@ -4,14 +4,13 @@ import { chatList } from '../actions/chatAction';
 import RateReviewOutlinedIcon from '@material-ui/icons/RateReviewOutlined';
 import { useDispatch, useSelector } from 'react-redux';
 import { initialAppStateType } from '../store';
-import { ChatMessageType, ChatType } from '../reducers/chatReducer';
+import { ChatType } from '../reducers/chatReducer';
 import Avatar from '@material-ui/core/Avatar';
 import AvatarGroup from '@material-ui/lab/AvatarGroup';
 import { API_BASE } from '../config';
 import { LoadingSpinner } from '../components/LoadingSpinner';
 import Alert from '@material-ui/lab/Alert';
 import { SigninType } from '../reducers/userReducer';
-import { useSocket } from '../hooks/index';
 
 
 
