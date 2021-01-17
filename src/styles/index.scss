@@ -1,0 +1,50 @@
+@import './components/LoginScreen.scss';
+@import './components/HomeScreen.scss';
+@import './components/Navbar.scss';
+@import './components/Posts.scss';
+@import './components/Reply.scss';
+@import './components/OtherUserProfileScreen.scss';
+@import './components/ProfileReplies.scss';
+@import './components/FollowModal.scss';
+@import './components/ImageUploadModal.scss';
+@import './components//ProfileScreen.scss';
+@import './components/SearchScreen.scss';
+@import './components/NewMessageScreen.scss';
+@import './components/MessageScreen.scss';
+@import './components/ChatScreen.scss';
+@import './components/InvalidPage.scss';
+@import './components/MessageContents.scss';
+@import './components/NotificationScreen.scss';
+@import './components/LoadingSpinner.scss';
+
+
+
+html,body{
+    height: 100%;
+    min-height: 100%;
+    background-color: #fff;
+    font-weight: 300;
+}
+
+*{
+    outline: none !important;
+}
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
+}
+
+#root {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 25px;
+    height: 100%;
+}
+
+.App, .row, .mainScreen{
+    height: 100%;
+}

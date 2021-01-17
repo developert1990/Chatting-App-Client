@@ -1,0 +1,54 @@
+
+
+
+.resultlistitem.notifyActive{
+    background-color: rgb(255, 169, 169);
+    color: #333;
+}
+
+.resultlistitem.notifyInActive{
+    pointer-events: none;
+}
+
+.notification{
+
+.userImageContainer{
+    margin-right: 18px;
+}
+
+}
+
+.MuiButtonBase-root{
+    width: 26px;
+    height: 26px;
+
+    .fa-trash-alt{
+        width: 14px;
+        height: 16px;
+    }
+}
+
+.markAll__inactive{
+    pointer-events: none;
+}
+
+.deleteAll__inactive{
+    pointer-events: none;
+}
+
+.markAll__active{
+    color: red;
+    transition: all ease 0.3s;
+}
+.markAll__active:hover{
+    transform: scale( 1.3 );
+}
+
+.deleteAll__active{
+color: red;
+    transition: all ease 0.3s;
+}
+
+.deleteAll__active:hover{
+    transform: scale( 1.3 );
+}
