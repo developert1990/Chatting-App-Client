@@ -1,11 +1,11 @@
-import { userDataType } from './../../../server/types.d';
+import { SigninType } from './userReducer';
 import { NOTIFICATION_REQUEST, NOTIFICATION_SUCCESS, NOTIFICATION_FAIL, NOTIFICATION_RESET, UNREAD_NOTIFICATION_REQUEST, UNREAD_NOTIFICATION_SUCCESS, UNREAD_NOTIFICATION_FAIL, UNREAD_NOTIFICATION_RESET } from './../constants/notificationConstants';
 import { notificationActionType } from './../actions/types.d';
 export interface notificationType {
     // declare any instance methods here
     _id: string;
-    userTo: userDataType;
-    userFrom: userDataType;
+    userTo: SigninType;
+    userFrom: SigninType;
     notificationType: string;
     opened: boolean;
     entityId: string;

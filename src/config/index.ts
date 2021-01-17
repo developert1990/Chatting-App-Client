@@ -1,1 +1,1 @@
-export const API_BASE = "http://localhost:9003";
+export const API_BASE = process.env.NODE_ENV === "development" ? "http://localhost:9003" : `http://${process.env.REACT_APP_API_BASE}:9003`; //REACT_APP_API_BASE 는 EC2의 Public IPv4 DNS 값이다.

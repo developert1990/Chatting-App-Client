@@ -1,0 +1,34 @@
+name: Building and Testing API CI
+
+on: workflow_dispatch
+
+jobs:
+  chatApp-build-test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        node-version: [12.18]
+    steps:
+      - name: Checking out repository code
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{matrix.node-version}}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{matrix.node-version}}
+      - name: Building react app
+
+        run: |
+          npm install -g yarn
+          yarn
+          echo "REACT_APP_API_BASE=$REACT_APP_API_BASE" > .env
+          yarn build
+        env:
+          REACT_APP_API_BASE: ${{secrets.REACT_APP_API_BASE}}
+
+      #   run: | 
+      #     npm run build
+      #     npm test
+      # - name: Testing app
+      #   run: npm test
