@@ -1,0 +1,4 @@
+#!/bin/bash
+# echo "AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID" > .env
+# echo "AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY" >> .env
+echo "REACT_APP_API_BASE=$REACT_APP_API_BASE" > .env
