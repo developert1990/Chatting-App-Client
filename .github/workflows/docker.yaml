@@ -19,8 +19,9 @@ jobs:
           password: ${{secrets.DOCKERHUB_TOKEN}}
 
       - name: Setting environment variables
+      # scripts 폴더의 경로를 잘 생각해줘야한다.
         run: |
-          sudo chmod +x ./scripts/set-env.sh
+          chmod +x ./scripts/set-env.sh 
           ./scripts/set-env.sh
         
         env:
