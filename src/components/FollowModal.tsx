@@ -1,6 +1,6 @@
 import Axios from 'axios';
-import React, { Dispatch, SetStateAction, useEffect, useState } from 'react';
-import { Button, Modal } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import { Modal } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { API_BASE } from '../config';
 import { SigninType } from '../reducers/userReducer';

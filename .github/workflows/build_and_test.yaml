@@ -24,8 +24,11 @@ jobs:
           yarn
           echo "REACT_APP_API_BASE=$REACT_APP_API_BASE" > .env
           yarn build
+          
+        # 환경변수
         env:
           REACT_APP_API_BASE: ${{secrets.REACT_APP_API_BASE}}
+          CI: false # 보통 CI라는 환경변수가 정해져있으면 CI환경에 맞게 최적화 해주기 위해서 사용해줬다.
 
       #   run: | 
       #     npm run build
