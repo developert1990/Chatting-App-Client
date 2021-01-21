@@ -48,6 +48,7 @@ export const Router = () => {
     })
 
     console.log('환경 체크 API_BASE: ==>>> ', process.env.API_BASE)
+    console.log("노드 환경 체크 ==>>> ", process.env.NODE_ENV)
     return (
         <BrowserRouter >
             <div className="mainScreen">

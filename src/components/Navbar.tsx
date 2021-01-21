@@ -5,11 +5,12 @@ import { Link } from 'react-router-dom'
 import { getUnreadMessages } from '../actions/chatAction'
 import { getUnReadNotification } from '../actions/notificationAction'
 import { signout } from '../actions/userActions'
+import { useSocket } from '../hooks'
 import { initialAppStateType } from '../store';
 
 
 export const Navbar = () => {
-
+    const { socket } = useSocket();
     const signinInfoStore = useSelector((state: initialAppStateType) => state.signinStore);
     const { signinInfo } = signinInfoStore;
 
@@ -24,6 +25,9 @@ export const Navbar = () => {
 
     const handleSignout = async () => {
         dispatch(signout());
+
+        socket?.off();
+        socket?.emit('disconnected');
     }
 
 

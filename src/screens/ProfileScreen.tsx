@@ -23,8 +23,6 @@ import { useSocket } from '../hooks';
 
 
 
-// let socket: Socket = io("http://localhost:9003");
-
 export const ProfileScreen = () => {
     const location = useLocation();
     const dispatch = useDispatch();
