@@ -7,7 +7,7 @@ import Badge from '@material-ui/core/Badge';
 import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import QuestionAnswerOutlinedIcon from '@material-ui/icons/QuestionAnswerOutlined';
-import { postDelete } from '../actions/postActions';
+import { allPostLists, postDelete, postLists } from '../actions/postActions';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { initialAppStateType } from '../store';
@@ -35,6 +35,7 @@ export const SinglePost: React.FC<SinglePostPropsType> = ({ post, setShow, handl
 
     const handleDelete = async (postId: string) => {
         dispatch(postDelete(postId));
+        dispatch(allPostLists());
     }
 
     const commentsHandle = (postId: string) => {
